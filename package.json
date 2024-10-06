@@ -23,7 +23,8 @@
   "dependencies": {
     "@electron-toolkit/preload": "^3.0.1",
     "@electron-toolkit/utils": "^3.0.0",
-    "node-sqlite3-wasm": "^0.8.23"
+    "node-sqlite3-wasm": "^0.8.23",
+    "sql-template-strings": "^2.2.2"
   },
   "devDependencies": {
     "@electron-toolkit/eslint-config-prettier": "^2.0.0",
