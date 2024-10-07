@@ -1,6 +1,8 @@
-import databaseManager from "../config/initDB";
+import dbManager from "@dbManager";
+dbManager;
 
-databaseManager;
+import dataFake from "../fake-data/dataFake";
+dataFake();
 
 import { ping } from "./ping";
 

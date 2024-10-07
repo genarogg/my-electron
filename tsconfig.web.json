@@ -4,24 +4,30 @@
     "src/renderer/src/env.d.ts",
     "src/renderer/src/**/*",
     "src/preload/*.d.ts",
+    "src/main/**/*.d.ts",
+    "src/main/**/*.ts",
   ],
   "compilerOptions": {
     "composite": true,
     "jsx": "react-jsx",
     "types": ["electron-vite/node"],
-    "baseUrl": "./src/renderer/src/",
+    "baseUrl": "./src",
     "paths": {
       "@renderer/*": ["*"],
-      "@redux": ["components/state/Redux.tsx"],
-      "@provider": ["components/state/Provider.tsx"],
+      "@redux": ["renderer/src/components/state/Redux.tsx"],
+      "@provider": ["renderer/src/components/state/Provider.tsx"],
 
-      "@form": ["components/nano/form/index.tsx"],
-      "@btn": ["components/nano/btn/index.tsx"],
-      "@nano": ["components/nano/index.tsx"],
+      "@form": ["renderer/src/components/nano/form/index.tsx"],
+      "@btn": ["renderer/src/components/nano/btn/index.tsx"],
+      "@nano": ["renderer/src/components/nano/index.tsx"],
 
-      "@formSkeleton" : ["components/nano/skeleton/formSkeleton.tsx"],
+      "@formSkeleton" : ["renderer/src/components/nano/skeleton/formSkeleton.tsx"],
 
-      "@electron": ["components/electron/index.tsx"],
+      "@electron": ["renderer/src/components/electron/index.tsx"],
+
+      // api interna
+      "@dbManager": ["main/config/dbManager.ts"],
+      "@model": ["main/models/index.ts"],
     }
   }
 }

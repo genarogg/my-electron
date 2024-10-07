@@ -7,6 +7,13 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   main: {
     plugins: [externalizeDepsPlugin()],
+
+    resolve: {
+      alias: {
+        "@dbManager": resolve("src/main/config/dbManager.ts"),
+        "@model": resolve("src/main/models/index.ts"),
+      },
+    },
   },
   preload: {
     plugins: [externalizeDepsPlugin()],
@@ -44,14 +51,6 @@ export default defineConfig({
         ),
       },
     },
-
-    // css: {
-    //   preprocessorOptions: {
-    //     scss: {
-    //       additionalData: `@import "src/renderer/src/scss/style.scss";`,
-    //     },
-    //   },
-    // },
 
     plugins: [react()],
   },
