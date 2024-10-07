@@ -18,18 +18,17 @@ const EmpleadoTable: React.FC<EmpleadoTableProps> = ({
   ir,
   irAnadirEmpleado,
 }) => {
-  const [empleadoas, setEmpleado] = useState<EmpleadoTypes[]>([]);
+  const [empleados, setEmpleado] = useState<EmpleadoTypes[]>([]);
 
   useEffect(() => {
     const fetchEmpleado = async () => {
       try {
         window.electron.ipcRenderer
           .invoke("empleado/getEmpleado", { tipo_empleado: tipo })
-          .then((result) => {
-            console.log(result);
-            // if (data.type === "success") {
-            //     setEmpleado(data.administrativos);
-            //   }
+          .then((data) => {
+            if (data.type === "success") {
+              setEmpleado(data.empleados);
+            }
           });
       } catch (error) {
         console.error("Error al recuperar los datos de los empleados:", error);
@@ -40,7 +39,7 @@ const EmpleadoTable: React.FC<EmpleadoTableProps> = ({
   }, []);
 
   const datos = [
-    empleadoas.length > 0 ? empleadoas : staticDataFake,
+    empleados.length > 0 ? empleados : staticDataFake,
     configTablet,
   ];
 

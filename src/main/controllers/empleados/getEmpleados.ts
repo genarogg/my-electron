@@ -7,16 +7,15 @@ const getEmpleado = ipcMain.handle(
     try {
       const empleados = await empleadoPoliticaService.getEmpleadoWithPolitica();
 
-      //   console.log(data.tipo_empleado);
-
       // Filtrar empleados por tipo_empleado
       const filteredEmpleados = empleados.filter(
         (empleado) => empleado.tipo_empleado === data.tipo_empleado
       );
 
-      console.log(filteredEmpleados);
-
-      return filteredEmpleados;
+      return {
+        type: "success",
+        empleados: filteredEmpleados,
+      };
     } catch (error) {
       console.error(
         "Error al obtener la información combinada de empleado y política:",

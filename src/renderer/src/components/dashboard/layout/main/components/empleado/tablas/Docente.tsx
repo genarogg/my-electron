@@ -1,4 +1,4 @@
-import EmpleadoTable from "./Empleado";
+import EmpleadoTable from "../Empleado";
 
 interface DocenteProps {}
 
