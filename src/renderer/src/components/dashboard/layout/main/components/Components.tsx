@@ -28,6 +28,8 @@ import EmpleadoTable from "./empleado/Empleado";
 // import TabletBitacora from "./bitacora/TabletBitacora";
 import { TbCheckupList } from "react-icons/tb";
 
+import Docente from "./empleado/Docente";
+
 import Inicio from "./inicio/Inicio";
 const components: any = [
   {
@@ -43,11 +45,11 @@ const components: any = [
   {
     titleSecction: "Empleados",
     elements: [
-      // {
-      //   component: TabletDocente,
-      //   context: "docentes",
-      //   icon: <PiStudentBold />,
-      // },
+      {
+        component: Docente,
+        context: "docentes",
+        icon: <PiStudentBold />,
+      },
 
       // {
       //   component: TabletObrero,

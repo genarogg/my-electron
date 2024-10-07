@@ -1,24 +1,30 @@
 import React, { useEffect, useState } from "react";
 
-interface EmpleadoTableProps {}
-
 import TabletTrabajador from "@components/tablet/TabletTrabajador";
 import EmpleadoTypes from "./configTablet/EmpleadoTypes";
 import configTablet from "./configTablet/configTablet";
 import staticDataFake from "./configTablet/staticDataFake";
 
-const EmpleadoTable: React.FC<EmpleadoTableProps> = () => {
-  const irAnadirObrero = () => {
-    console.log("");
-  };
+interface EmpleadoTableProps {
+  tipo: string;
+  nameTablet: string;
+  ir: string;
+  irAnadirEmpleado: () => void;
+}
 
+const EmpleadoTable: React.FC<EmpleadoTableProps> = ({
+  tipo,
+  nameTablet,
+  ir,
+  irAnadirEmpleado,
+}) => {
   const [empleadoas, setEmpleado] = useState<EmpleadoTypes[]>([]);
 
   useEffect(() => {
-    const fetchAdministrativo = async () => {
+    const fetchEmpleado = async () => {
       try {
         window.electron.ipcRenderer
-          .invoke("empleado/get", { tipo_empleado: "docente" })
+          .invoke("empleado/getEmpleado", { tipo_empleado: tipo })
           .then((result) => {
             console.log(result);
             // if (data.type === "success") {
@@ -30,7 +36,7 @@ const EmpleadoTable: React.FC<EmpleadoTableProps> = () => {
       }
     };
 
-    fetchAdministrativo();
+    fetchEmpleado();
   }, []);
 
   const datos = [
@@ -41,11 +47,11 @@ const EmpleadoTable: React.FC<EmpleadoTableProps> = () => {
   return (
     <>
       <TabletTrabajador
-        nameTabla="Administrativo"
-        onClick={irAnadirObrero}
+        nameTabla={nameTablet}
+        onClick={irAnadirEmpleado}
         rowData={datos[0]}
         columnDefs={datos[1]}
-        ir={""}
+        ir={ir}
       />
     </>
   );

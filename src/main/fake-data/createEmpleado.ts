@@ -1,4 +1,4 @@
-import { empleadoService } from "@model";
+import { empleadoService, politicaService } from "@model";
 
 const crearEmpleados = async () => {
   // Datos de ejemplo para empleados
@@ -261,6 +261,67 @@ const crearEmpleados = async () => {
       empleado.titulo_obtenido
     );
   }
+
+  // Datos de ejemplo para políticas
+  const politica = [
+    {
+      id_empleado: 1,
+      inscrito_psuv: true,
+      pertenece_movimiento_social: "Movimiento A",
+      carnet_patria_codigo: "1234567890",
+      carnet_patria_serial: "A1B2C3D4",
+      centro_votacion: "Centro 1",
+      tipo_voto: "Tipo 1",
+    },
+    {
+      id_empleado: 2,
+      inscrito_psuv: false,
+      pertenece_movimiento_social: "Movimiento B",
+      carnet_patria_codigo: "0987654321",
+      carnet_patria_serial: "D4C3B2A1",
+      centro_votacion: "Centro 2",
+      tipo_voto: "Tipo 2",
+    },
+    {
+      id_empleado: 3,
+      inscrito_psuv: true,
+      pertenece_movimiento_social: "Movimiento C",
+      carnet_patria_codigo: "1122334455",
+      carnet_patria_serial: "E5F6G7H8",
+      centro_votacion: "Centro 3",
+      tipo_voto: "Tipo 3",
+    },
+    {
+      id_empleado: 4,
+      inscrito_psuv: false,
+      pertenece_movimiento_social: "Movimiento D",
+      carnet_patria_codigo: "5566778899",
+      carnet_patria_serial: "H8G7F6E5",
+      centro_votacion: "Centro 4",
+      tipo_voto: "Tipo 4",
+    },
+    {
+      id_empleado: 5,
+      inscrito_psuv: true,
+      pertenece_movimiento_social: "Movimiento E",
+      carnet_patria_codigo: "6677889900",
+      carnet_patria_serial: "I9J0K1L2",
+      centro_votacion: "Centro 5",
+      tipo_voto: "Tipo 5",
+    },
+  ];
+
+  politica.forEach((data) => {
+    politicaService.createPolitica(
+      data.id_empleado,
+      data.inscrito_psuv,
+      data.pertenece_movimiento_social,
+      data.carnet_patria_codigo,
+      data.carnet_patria_serial,
+      data.centro_votacion,
+      data.tipo_voto
+    );
+  });
 };
 
 export default crearEmpleados;
