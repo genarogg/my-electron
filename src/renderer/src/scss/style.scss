@@ -1,0 +1,21 @@
+@import "./global/variables";
+@import "./global/mixin";
+
+@import "./global/global";
+@import "../components/nano/style";
+
+/* @import "../components/layout/layout"; */
+
+// @import "../components/form/formSkeleton";
+
+// @import "../components/electron/electron";
+
+// @import "../components/dashboard/dashboard";
+
+// @import "../components/tablet/layoutTablet";
+
+// @import "./newStyle";
+
+*{
+    border: 1px solid red;
+}
