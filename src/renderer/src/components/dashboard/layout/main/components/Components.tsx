@@ -18,6 +18,8 @@ import AddEmpleado from "./empleado/crud/AddEmpleado";
 
 import Docente from "./empleado/tablas/Docente";
 import Obrero from "./empleado/tablas/Obrero";
+import Administrativo from "./empleado/tablas/Administrativo";
+import Cocinero from "./empleado/tablas/Cocineros";
 
 import Inicio from "./inicio/Inicio";
 const components: any = [
@@ -45,6 +47,16 @@ const components: any = [
         context: "obreros",
         icon: <GrUserWorker />,
       },
+      {
+        component: Administrativo,
+        context: "administrativos",
+        icon: <FaUsersLine />,
+      },
+      {
+        component: Cocinero,
+        context: "cocineros",
+        icon: <PiChefHatBold />,
+      },
     ],
   },
   {
@@ -70,11 +82,7 @@ const components: any = [
         context: "agregar empleado",
         icon: <FaCalendarAlt />,
       },
-      // {
-      //   component: AddObrero,
-      //   context: "agregar obrero",
-      //   icon: <FaCalendarAlt />,
-      // },
+
       // {
       //   component: AddAdministrativo,
       //   context: "agregar administrativo",

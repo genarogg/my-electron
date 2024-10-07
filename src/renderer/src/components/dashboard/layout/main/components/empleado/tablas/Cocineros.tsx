@@ -1,16 +1,16 @@
 import EmpleadoTable from "../Empleado";
 
-interface ObrerosProps {}
+interface CocinerosProps {}
 
-const Obreros: React.FC<ObrerosProps> = () => {
+const Cocineros: React.FC<CocinerosProps> = () => {
   return (
     <EmpleadoTable
-      tipo="obrero"
-      nameTablet="Obreros"
+      tipo="cocinero"
+      nameTablet="Cocineros"
       ir="agregar empleado"
       irAnadirEmpleado={() => console.log("ir a añadir Obreros")}
     />
   );
 };
 
-export default Obreros;
+export default Cocineros;
