@@ -14,7 +14,7 @@ export const createEmpleadoTableQuery = SQL`
     direccion_de_habitacion TEXT,
     codigo_cargo TEXT,
     dependencia_nominal TEXT,
-    estatus BOOLEAN,
+    estatus TEXT,
     reposo_permiso TEXT,
     anos_servicio FLOAT,
     observaciones TEXT,

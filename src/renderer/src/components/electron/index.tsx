@@ -1,4 +1,4 @@
-import CloseElectron from "./CloseElectron";
+import CloseElectron from "../dashboard/layout/main/components/CloseElectron";
 import HeaderElectron from "./HeaderElectron";
 import LayoutElectron from "./LayoutElectron";
 

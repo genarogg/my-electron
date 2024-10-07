@@ -14,6 +14,8 @@ import AsistenciaTabla from "./asistencia/AsistenciaTabla";
 
 import { TbCheckupList } from "react-icons/tb";
 
+import AddEmpleado from "./empleado/crud/AddEmpleado";
+
 import Docente from "./empleado/tablas/Docente";
 import Obrero from "./empleado/tablas/Obrero";
 
@@ -63,11 +65,11 @@ const components: any = [
   {
     titleSecction: "otros",
     elements: [
-      // {
-      //   component: AddDocente,
-      //   context: "agregar docente",
-      //   icon: <FaCalendarAlt />,
-      // },
+      {
+        component: AddEmpleado,
+        context: "agregar empleado",
+        icon: <FaCalendarAlt />,
+      },
       // {
       //   component: AddObrero,
       //   context: "agregar obrero",

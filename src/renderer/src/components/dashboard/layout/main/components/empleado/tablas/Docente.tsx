@@ -7,7 +7,7 @@ const Docente: React.FC<DocenteProps> = () => {
     <EmpleadoTable
       tipo="docente"
       nameTablet="docentes"
-      ir="agregar docente"
+      ir="agregar empleado"
       irAnadirEmpleado={() => console.log("ir a añadir docente")}
     />
   );
