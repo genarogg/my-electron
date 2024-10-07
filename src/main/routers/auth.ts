@@ -1,6 +1,6 @@
 import { ipcMain } from "electron";
 import bcrypt from "bcryptjs";
-import { userService } from "@model";
+import { userService, bitacoraService } from "@model";
 
 const login = ipcMain.handle("auth/login", async (event, data) => {
   const { userName, password } = data;
@@ -17,11 +17,11 @@ const login = ipcMain.handle("auth/login", async (event, data) => {
     return { message: "Usuario o contraseña incorrectos", type: "error" };
   }
 
-  //@Bitacora
-  //   await bitacoraService.createBitacoraEntry({
-  //     usuario: "demo@demo.com",
-  //     accion: `Inicio de sesión del usuario ${usuario.correo}`,
-  //   });
+  // @Bitacora
+  await bitacoraService.createBitacora({
+    usuario: usuario.email,
+    accion: `Inicio de sesión del usuario ${usuario.email}`,
+  });
 
   return { message: "Inicio de sesión correcto", type: "success" };
 });

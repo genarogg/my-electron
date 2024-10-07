@@ -1,3 +1,3 @@
 import userService from "./UserService";
-
-export { userService };
+import bitacoraService from "./BitacoraService";
+export { userService, bitacoraService };
