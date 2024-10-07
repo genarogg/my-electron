@@ -26,41 +26,27 @@ const submitLogin = ({ formData, setFormData }: submitLogin) => {
     password: formData.password,
   };
 
-  window.electron.ipcRenderer.invoke("auth/login", newData).then((result) => {
-    console.log(result);
-  });
-/* 
-  fetch(`/auth`, {
-    method: "POST",
-    body: JSON.stringify(newData),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  })
-    .then((res) => res.json())
-    .then((res) => {
-      console.log(res);
-      notify({ type: "success", message: res.mensaje });
+  window.electron.ipcRenderer
+    .invoke("auth/login", newData)
+    .then((result) => {
+      console.log(result);
 
-      if (formData.remember) {
-        localStorage.setItem("token", res.token);
+      if (result.type === "error") {
+        notify({ type: result.type, message: result.message });
       }
 
+      notify({ type: result.type, message: result.message });
       setFormData((prevFormData) => ({
         ...prevFormData,
         sesion: true,
       }));
-    })
-    .catch((err) => {
-      console.log(err);
-      notify({ type: "error", message: "Error al iniciar sesion" });
     })
     .finally(() => {
       setFormData((prevFormData) => ({
         ...prevFormData,
         loading: false,
       }));
-    }); */
+    });
 };
 
 export default submitLogin;

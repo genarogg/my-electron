@@ -27,6 +27,7 @@ const App: React.FC<AppProps> = () => {
       <Router>
         <Routes>
           <Route path="/" element={<Login />} />
+          <Route path="/dashboard" element={<p>dashboard</p>} />
         </Routes>
       </Router>
     </Provider>
