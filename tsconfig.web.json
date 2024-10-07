@@ -14,9 +14,9 @@
     "baseUrl": "./src",
     "paths": {
       "@renderer/*": ["*"],
+      "@components/*": ["renderer/src/components/*"],
       "@redux": ["renderer/src/components/state/Redux.tsx"],
       "@provider": ["renderer/src/components/state/Provider.tsx"],
-
       "@form": ["renderer/src/components/nano/form/index.tsx"],
       "@btn": ["renderer/src/components/nano/btn/index.tsx"],
       "@nano": ["renderer/src/components/nano/index.tsx"],

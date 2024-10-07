@@ -49,6 +49,8 @@ export default defineConfig({
         "@formSkeleton": resolve(
           "src/renderer/src/components/nano/skeleton/formSkeleton.tsx"
         ),
+
+        "@components": resolve(__dirname, "src/renderer/src/components"),
       },
     },
 

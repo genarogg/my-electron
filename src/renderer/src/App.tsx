@@ -3,6 +3,7 @@ import "./scss/style.scss";
 import Provider from "@provider";
 
 import Login from "./pages/Login";
+import Dashboard from "./pages/Dashboard";
 
 interface AppProps {}
 
@@ -26,8 +27,8 @@ const App: React.FC<AppProps> = () => {
     <Provider>
       <Router>
         <Routes>
-          <Route path="/" element={<Login />} />
-          <Route path="/dashboard" element={<p>dashboard</p>} />
+          {/* <Route path="/" element={<Login />} /> */}
+          <Route path="/" element={<Dashboard />} />
         </Routes>
       </Router>
     </Provider>

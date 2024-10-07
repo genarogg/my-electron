@@ -4,13 +4,13 @@ dbManager;
 import dataFake from "../fake-data/dataFake";
 dataFake();
 
-import auth from "./auth";
+import { login } from "../controllers/auth";
 
 import { ping } from "./ping";
 
 const router = {
   ping,
-  auth,
+  login,
 };
 
 export default router;
