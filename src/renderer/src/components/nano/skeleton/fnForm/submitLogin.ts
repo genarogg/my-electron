@@ -33,6 +33,7 @@ const submitLogin = ({ formData, setFormData }: submitLogin) => {
 
       if (result.type === "error") {
         notify({ type: result.type, message: result.message });
+        return;
       }
 
       notify({ type: result.type, message: result.message });

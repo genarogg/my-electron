@@ -15,6 +15,8 @@ let mainWindow: BrowserWindow | null = null;
 async function createWindow(): Promise<void> {
   // Create the browser window.
   mainWindow = new BrowserWindow({
+    /* height: 450,
+    width: 460, */
     height: 720,
     width: 1280,
     show: true,
