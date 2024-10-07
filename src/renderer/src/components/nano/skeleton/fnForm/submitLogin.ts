@@ -1,6 +1,5 @@
 import { notify } from "@nano";
 
-
 interface submitLogin {
   formData: {
     userName: string;
@@ -27,6 +26,10 @@ const submitLogin = ({ formData, setFormData }: submitLogin) => {
     password: formData.password,
   };
 
+  window.electron.ipcRenderer.invoke("auth/login", newData).then((result) => {
+    console.log(result);
+  });
+/* 
   fetch(`/auth`, {
     method: "POST",
     body: JSON.stringify(newData),
@@ -57,7 +60,7 @@ const submitLogin = ({ formData, setFormData }: submitLogin) => {
         ...prevFormData,
         loading: false,
       }));
-    });
+    }); */
 };
 
 export default submitLogin;
