@@ -237,7 +237,7 @@ const crearEmpleados = async () => {
 
   // Insertar empleados en la base de datos
   for (const empleado of empleados) {
-    await empleadoService.createEmpleado(
+    empleadoService.createEmpleado(
       empleado.tipo_empleado,
       empleado.nombres,
       empleado.apellidos,
