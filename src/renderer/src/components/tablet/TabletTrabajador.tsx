@@ -11,7 +11,8 @@ import { useSimpleNav } from "@components/state/useSimpleNav";
 interface TabletTrabajadorProps {
   nameTabla: string;
   onClick: () => void;
-  datos: any;
+  rowData: any[];
+  columnDefs: any[];
   ir: string;
   subname?: string;
 }
@@ -20,10 +21,11 @@ const TabletTrabajador: React.FC<TabletTrabajadorProps> = ({
   nameTabla,
   subname = "añadir un",
   onClick,
-  datos,
+  rowData,
+  columnDefs,
   ir,
 }) => {
-  const { state, selectedContext, handleChangeContext } = useSimpleNav();
+  const { state, handleChangeContext } = useSimpleNav();
   const [quickFilterText, setQuickFilterText] = useState<string>("");
 
   const combinedFunction = () => {
@@ -47,11 +49,10 @@ const TabletTrabajador: React.FC<TabletTrabajadorProps> = ({
       </div>
       <div className="ag-theme-alpine table-container">
         <AgGridReact
-          rowData={datos[0].reverse()}
-          columnDefs={datos[1]}
+          rowData={rowData.reverse()}
+          columnDefs={columnDefs}
           pagination={true}
           paginationPageSize={30}
-          //   domLayout="normal"
           quickFilterText={quickFilterText}
         />
       </div>

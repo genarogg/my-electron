@@ -50,7 +50,8 @@ const AsistenciaTabla: React.FC<AsistenciaTablaProps> = () => {
         nameTabla="asistencia"
         subname="registrar una"
         onClick={irAnadirObrero}
-        datos={datos}
+        rowData={datos[0]}
+        columnDefs={datos[1]}
         ir={"Asistencia"}
       />
 
