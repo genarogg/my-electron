@@ -1,9 +1,9 @@
 import { app, shell, BrowserWindow } from "electron";
 import { join } from "path";
 import { electronApp, optimizer, is } from "@electron-toolkit/utils";
-// import installExtension, {
-//   REACT_DEVELOPER_TOOLS,
-// } from "electron-devtools-installer";
+import installExtension, {
+  REACT_DEVELOPER_TOOLS,
+} from "electron-devtools-installer";
 
 import icon from "../../resources/logo.png?asset";
 import path from "path";
@@ -57,11 +57,11 @@ app.whenReady().then(async () => {
     if (BrowserWindow.getAllWindows().length === 0) createWindow();
   });
 
-  /* if (is.dev) {
+  if (is.dev) {
     installExtension(REACT_DEVELOPER_TOOLS)
       .then((name) => console.log(`Added Extension:  ${name}`))
       .catch((err) => console.log("An error occurred: ", err));
-  } */
+  }
 });
 
 // cierra la ventana en todas las plataformas
