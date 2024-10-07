@@ -13,7 +13,15 @@
     "paths": {
       "@renderer/*": ["*"],
       "@redux": ["components/state/Redux.tsx"],
-      "@provider": ["components/state/Provider.tsx"]
+      "@provider": ["components/state/Provider.tsx"],
+
+      "@form": ["components/nano/form/index.tsx"],
+      "@btn": ["components/nano/btn/index.tsx"],
+      "@nano": ["components/nano/index.tsx"],
+
+      "@formSkeleton" : ["components/nano/skeleton/formSkeleton.tsx"],
+
+      "@electron": ["components/electron/index.tsx"],
     }
   }
 }

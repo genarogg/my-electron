@@ -6,9 +6,9 @@
 
 /* @import "../components/layout/layout"; */
 
-// @import "../components/form/formSkeleton";
+@import "../components/nano/skeleton/formSkeleton";
 
-// @import "../components/electron/electron";
+@import "../components/electron/electron";
 
 // @import "../components/dashboard/dashboard";
 
@@ -16,6 +16,3 @@
 
 // @import "./newStyle";
 
-*{
-    border: 1px solid red;
-}

@@ -9,14 +9,17 @@ import icon from "../../resources/logo.png?asset";
 import path from "path";
 import router from "./routers/index";
 
+// Define mainWindow fuera de la función createWindow
+let mainWindow: BrowserWindow | null = null;
+
 async function createWindow(): Promise<void> {
   // Create the browser window.
-  const mainWindow = new BrowserWindow({
+  mainWindow = new BrowserWindow({
     height: 720,
     width: 1280,
     show: true,
-    // frame: false,
-    // transparent: true,
+    frame: false,
+    transparent: true,
     autoHideMenuBar: true,
     title: "e.t. ademar vasquez chavez",
     icon: path.join(__dirname, "../../resources/logo.ico"),
@@ -39,6 +42,11 @@ async function createWindow(): Promise<void> {
   } else {
     mainWindow.loadFile(join(__dirname, "../renderer/index.html"));
   }
+
+  // Maneja el evento de cierre de la ventana
+  mainWindow.on("closed", () => {
+    mainWindow = null;
+  });
 }
 
 app.whenReady().then(async () => {
@@ -70,3 +78,6 @@ app.on("window-all-closed", () => {
     app.quit();
   }
 });
+
+// Exporta mainWindow
+export { mainWindow };

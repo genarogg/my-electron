@@ -2,6 +2,8 @@ import { HashRouter as Router, Route, Routes } from "react-router-dom";
 import "./scss/style.scss";
 import Provider from "@provider";
 
+import Login from "./pages/Login";
+
 interface AppProps {}
 
 // const App: React.FC<AppProps> = () => {
@@ -24,7 +26,7 @@ const App: React.FC<AppProps> = () => {
     <Provider>
       <Router>
         <Routes>
-          <Route path="/" element={<p>asdf</p>} />
+          <Route path="/" element={<Login />} />
         </Routes>
       </Router>
     </Provider>
