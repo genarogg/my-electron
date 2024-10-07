@@ -197,6 +197,7 @@ const AddEmpleado: React.FC<AddEmpleadoProps> = ({ tipo_empleado }) => {
                   direccion_de_habitacion: e.target.value,
                 })
               }
+              className="grid-2-columns"
             />
           </div>
 
@@ -206,6 +207,7 @@ const AddEmpleado: React.FC<AddEmpleadoProps> = ({ tipo_empleado }) => {
             </div>
 
             <Input
+              required={false}
               type="text"
               icono={<FaUserGraduate />}
               placeholder="Título Obtenido"
@@ -217,6 +219,7 @@ const AddEmpleado: React.FC<AddEmpleadoProps> = ({ tipo_empleado }) => {
             />
 
             <Input
+              required={false}
               type="text"
               icono={<FaUserGraduate />}
               placeholder="Título de Pregrado"
@@ -228,6 +231,7 @@ const AddEmpleado: React.FC<AddEmpleadoProps> = ({ tipo_empleado }) => {
             />
 
             <Input
+              required={false}
               type="text"
               icono={<FaUserTie />}
               placeholder="Área Docente Especialista"
@@ -242,6 +246,7 @@ const AddEmpleado: React.FC<AddEmpleadoProps> = ({ tipo_empleado }) => {
             />
 
             <Input
+              required={false}
               type="date"
               hasContentState={true}
               icono={<MdDateRange />}
@@ -254,6 +259,7 @@ const AddEmpleado: React.FC<AddEmpleadoProps> = ({ tipo_empleado }) => {
             />
 
             <Input
+              required={false}
               type="text"
               icono={<MdHomeRepairService />}
               placeholder="Años de Servicio"
@@ -265,6 +271,7 @@ const AddEmpleado: React.FC<AddEmpleadoProps> = ({ tipo_empleado }) => {
             />
 
             <Input
+              required={false}
               type="text"
               icono={<MdOutlineWorkspacePremium />}
               placeholder="Código de Cargo"
@@ -275,6 +282,7 @@ const AddEmpleado: React.FC<AddEmpleadoProps> = ({ tipo_empleado }) => {
               }
             />
             <Input
+              required={false}
               type="text"
               icono={<GoWorkflow />}
               placeholder="Dependencia Nominal"
@@ -288,6 +296,7 @@ const AddEmpleado: React.FC<AddEmpleadoProps> = ({ tipo_empleado }) => {
               }
             />
             <Input
+              required={false}
               type="text"
               icono={<PiIntersectSquareBold />}
               placeholder="grado seccion"
@@ -302,6 +311,7 @@ const AddEmpleado: React.FC<AddEmpleadoProps> = ({ tipo_empleado }) => {
             />
 
             <Input
+              required={false}
               type="text"
               icono={<SiAzurefunctions />}
               placeholder="funcion trabajo"
@@ -316,6 +326,7 @@ const AddEmpleado: React.FC<AddEmpleadoProps> = ({ tipo_empleado }) => {
             />
 
             <Input
+              required={false}
               type="text"
               icono={<RiFunctionAddLine />}
               placeholder="acarigua"
@@ -342,6 +353,7 @@ const AddEmpleado: React.FC<AddEmpleadoProps> = ({ tipo_empleado }) => {
             />
 
             <Input
+              required={false}
               type="text"
               icono={<FaUserInjured />}
               placeholder="Reposo o Permiso"
@@ -422,6 +434,7 @@ const AddEmpleado: React.FC<AddEmpleadoProps> = ({ tipo_empleado }) => {
             />
 
             <Input
+              required={false}
               type="text"
               icono={<BiSolidInstitution />}
               placeholder="Centro de Votación"
@@ -439,6 +452,7 @@ const AddEmpleado: React.FC<AddEmpleadoProps> = ({ tipo_empleado }) => {
             </div>
 
             <Input
+              required={false}
               className="input-observaciones"
               type="text"
               placeholder=""

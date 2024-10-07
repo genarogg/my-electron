@@ -21,6 +21,10 @@
       }
     }
 
+    .container-input.grid-2-columns {
+      grid-column: span 2;
+    }
+
     .container-footer {
       .title {
         grid-column: span 2;
@@ -87,6 +91,9 @@
         .title {
           grid-column: initial;
         }
+      }
+      .container-input.grid-2-columns {
+        grid-column: initial;
       }
     }
   }
