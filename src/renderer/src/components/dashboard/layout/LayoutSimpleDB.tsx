@@ -1,7 +1,7 @@
-import { GlobalStateContext } from "@redux";
+import { GlobalStateContext, ActionTypes } from "@redux";
 
 import AsideSimple from "./aside/AsideSimple";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import HeaderSimpleDB from "./header/HeaderSimpleDB";
 
 import { LayoutElectron } from "@electron";
@@ -11,7 +11,13 @@ import MainSimple from "./main/MainSimple";
 interface LayoutSimpleDBProps {}
 
 const LayoutSimpleDB: React.FC<LayoutSimpleDBProps> = () => {
-  const { state } = useContext(GlobalStateContext);
+  const { state, dispatch } = useContext(GlobalStateContext);
+
+  // @revision
+  // useEffect(() => {
+  //   dispatch({ type: ActionTypes.SET_CONTEXT, payload: "SimpleDB" });
+  //   dispatch({ type: ActionTypes.SET_SUB_CONTEXT, payload: "" });
+  // }, []);
 
   return (
     <LayoutElectron>

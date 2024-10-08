@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { ToastContainer } from "react-toastify";
 
 import { useNavigate } from "react-router-dom";
@@ -12,10 +12,13 @@ import { MdLock } from "react-icons/md";
 import { submitLogin } from "../fnForm";
 import { CloseElectron } from "@electron";
 
+import { GlobalStateContext, ActionTypes } from "@redux";
 
 interface LoginBasicProps {}
 
 const LoginBasic: React.FC<LoginBasicProps> = () => {
+  const { dispatch } = useContext(GlobalStateContext);
+
   const [formData, setFormData] = useState({
     userName: "",
     password: "",
@@ -34,6 +37,7 @@ const LoginBasic: React.FC<LoginBasicProps> = () => {
   };
 
   if (formData.sesion) {
+    dispatch({ type: ActionTypes.SET_EMAIL, payload: formData.userName });
     navigate("/dashboard");
   }
 
@@ -69,7 +73,6 @@ const LoginBasic: React.FC<LoginBasicProps> = () => {
           }
         />
         <BtnSubmitBasic text="Iniciar sesion" loading={formData.loading} />
-
       </form>
       <ToastContainer />
     </div>

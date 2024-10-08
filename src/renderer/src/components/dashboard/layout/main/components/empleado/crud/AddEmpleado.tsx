@@ -34,8 +34,6 @@ interface AddEmpleadoProps {
 }
 
 const AddEmpleado: React.FC<AddEmpleadoProps> = () => {
-  
-
   const [formData, setFormData] = useState({
     // informacion del usuario
     nombres: "",
@@ -93,7 +91,6 @@ const AddEmpleado: React.FC<AddEmpleadoProps> = () => {
 
   console.log("state", state);
 
-
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -101,6 +98,7 @@ const AddEmpleado: React.FC<AddEmpleadoProps> = () => {
       empleado: { ...formData },
       politica: { ...formDataPolitica },
       tipo_empleado: state.sub_context,
+      usuario: state.email,
     };
 
     window.electron.ipcRenderer

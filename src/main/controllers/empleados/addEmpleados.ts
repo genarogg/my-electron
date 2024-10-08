@@ -1,12 +1,12 @@
 import { ipcMain } from "electron";
-import { empleadoService, politicaService } from "@model";
+import { empleadoService, politicaService, bitacoraService } from "@model";
 
 const addEmpleado = ipcMain.handle(
   "empleado/addEmpleado",
   async (event, data) => {
     event.defaultPrevented;
 
-    const { empleado, politica, tipo_empleado } = data;
+    const { empleado, politica, tipo_empleado, usuario } = data;
 
     try {
       const newEmpleado = await empleadoService.createEmpleado(
@@ -48,10 +48,10 @@ const addEmpleado = ipcMain.handle(
       );
 
       // @Bitacora
-      //   await bitacoraService.createBitacora({
-      //     usuario: usuario.email,
-      //     accion: `Inicio de sesión del usuario ${usuario.email}`,
-      //   });
+      bitacoraService.createBitacora({
+        usuario: usuario,
+        accion: `Se registro un nuevo empleado ${empleado.ci}`,
+      });
 
       return {
         type: "success",

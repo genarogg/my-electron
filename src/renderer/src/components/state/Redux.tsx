@@ -13,6 +13,7 @@ const initialState = {
   sub_context: "", // Nuevo parámetro añadido
   active_aside: false,
   user_image: "", // Asegúrate de que esté definido correctamente
+  email: "", // Nuevo campo añadido
 };
 
 // Define el objeto para las acciones
@@ -24,6 +25,7 @@ const ActionTypes = {
   RESET_STATE: "RESET_STATE",
   SET_ACTIVE_ASIDE: "SET_ACTIVE_ASIDE",
   SET_USER_IMAGE: "SET_USER_IMAGE", // Nueva acción para la imagen del usuario
+  SET_EMAIL: "SET_EMAIL", // Nueva acción para el email del usuario
 } as const;
 
 // Define las acciones
@@ -34,7 +36,8 @@ type Action =
   | { type: typeof ActionTypes.SET_SUB_CONTEXT; payload: string } // Nueva acción para sub_context
   | { type: typeof ActionTypes.RESET_STATE }
   | { type: typeof ActionTypes.SET_ACTIVE_ASIDE; payload: boolean }
-  | { type: typeof ActionTypes.SET_USER_IMAGE; payload: string }; // Nueva acción para la imagen del usuario
+  | { type: typeof ActionTypes.SET_USER_IMAGE; payload: string } // Nueva acción para la imagen del usuario
+  | { type: typeof ActionTypes.SET_EMAIL; payload: string }; // Nueva acción para el email del usuario
 
 // Define el tipo de estado
 export type State = typeof initialState;
@@ -92,6 +95,8 @@ const reducer = (state: State, action: Action): State => {
         return { ...state, active_aside: action.payload };
       case ActionTypes.SET_USER_IMAGE:
         return { ...state, user_image: action.payload }; // Maneja la nueva acción
+      case ActionTypes.SET_EMAIL:
+        return { ...state, email: action.payload }; // Maneja la nueva acción
       default:
         return state;
     }
