@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 import { Input } from "@form";
-import { CheckboxBasic, BtnSubmitBasic } from "@btn";
+import { BtnSubmitBasic } from "@btn";
 import { notify } from "@nano";
 import { BsEnvelopeFill } from "react-icons/bs";
 
-import { useSimpleNav } from "@components/state/useSimpleNav";
-
-
+// import { useSimpleNav } from "@components/state/useSimpleNav";
 
 import LayoutForm from "../../layoutForm/LayoutForm";
 
@@ -14,12 +12,12 @@ interface AddAsistenciaProps {
   fn: () => void;
 }
 
-const AddAsistencia: React.FC<AddAsistenciaProps> = ({fn}) => {
+const AddAsistencia: React.FC<AddAsistenciaProps> = ({ fn }) => {
   const [formData, setFormData] = useState({
     ci: "",
   });
 
-  const { state, handleChangeContext } = useSimpleNav();
+  // const { state, handleChangeContext } = useSimpleNav();
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -36,14 +34,14 @@ const AddAsistencia: React.FC<AddAsistenciaProps> = ({fn}) => {
       .then((res) => res.json())
       .then((data) => {
         console.log("data2", data);
-        
+
         if (data.type === "error") {
           notify({ message: data.message, type: data.type });
           return;
         }
         // handleChangeContext("Asistencia", "");
         setFormData({ ci: "" });
-        fn()
+        fn();
         notify({ message: data.message, type: data.type });
       })
       .catch((error) => {

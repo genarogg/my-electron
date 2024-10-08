@@ -28,13 +28,15 @@ import { FaUsers } from "react-icons/fa";
 import { ImMoveUp } from "react-icons/im";
 import { FaSlidersH } from "react-icons/fa";
 import { BiSolidInstitution } from "react-icons/bi";
+
 interface AddEmpleadoProps {
   tipo_empleado: string;
 }
 
-const AddEmpleado: React.FC<AddEmpleadoProps> = ({ tipo_empleado }) => {
+const AddEmpleado: React.FC<AddEmpleadoProps> = () => {
+  
+
   const [formData, setFormData] = useState({
-    tipo_empleado: "",
     // informacion del usuario
     nombres: "",
     apellidos: "",
@@ -53,19 +55,22 @@ const AddEmpleado: React.FC<AddEmpleadoProps> = ({ tipo_empleado }) => {
     codigo_cargo: "",
     dependencia_nominal: "",
     estatus: "",
+
     reposo_permiso: "",
     anos_servicio: "",
     grado_seccion: "",
     funcion_trabajo: "",
     acarigua: "",
+    observaciones: "",
+  });
 
+  const [formDataPolitica, setFormDataPolitica] = useState({
     inscrito_psuv: "",
     pertenece_movimiento_social: "",
     carnet_patria_codigo: "",
     carnet_patria_serial: "",
     centro_votacion: "",
     tipo_voto: "",
-    observaciones: "",
   });
 
   const estatusData = [
@@ -86,25 +91,30 @@ const AddEmpleado: React.FC<AddEmpleadoProps> = ({ tipo_empleado }) => {
 
   const { state, handleChangeContext } = useSimpleNav();
 
+  console.log("state", state);
+
+
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(formData);
-    console.log("URL_BACKEND", `/administrativo/add`);
 
-    fetch(`/administrativo/add`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        notify({ message: data.message, type: data.type });
+    const newData = {
+      empleado: { ...formData },
+      politica: { ...formDataPolitica },
+      tipo_empleado: state.sub_context,
+    };
+
+    window.electron.ipcRenderer
+      .invoke("empleado/addEmpleado", newData)
+      .then((result) => {
+        if (result.type === "error") {
+          notify({ type: result.type, message: result.message });
+          return;
+        }
+
+        notify({ message: result.message, type: result.type });
         handleChangeContext(state.sub_context, "");
-        console.log("data", data);
-        console.log(data);
-      });
+      })
+      .finally(() => {});
   };
 
   return (
@@ -375,9 +385,12 @@ const AddEmpleado: React.FC<AddEmpleadoProps> = ({ tipo_empleado }) => {
               placeholder="Inscrito en el PSUV"
               content={true}
               name="inscrito_psuv"
-              value={formData.inscrito_psuv}
+              value={formDataPolitica.inscrito_psuv}
               valueChange={(e) =>
-                setFormData({ ...formData, inscrito_psuv: e.value })
+                setFormDataPolitica({
+                  ...formDataPolitica,
+                  inscrito_psuv: e.value,
+                })
               }
               options={politicaData}
             />
@@ -386,10 +399,10 @@ const AddEmpleado: React.FC<AddEmpleadoProps> = ({ tipo_empleado }) => {
               icono={<ImMoveUp />}
               placeholder="Pertenece a Movimiento Social"
               name="pertenece_movimiento_social"
-              value={formData.pertenece_movimiento_social}
+              value={formDataPolitica.pertenece_movimiento_social}
               valueChange={(e) =>
-                setFormData({
-                  ...formData,
+                setFormDataPolitica({
+                  ...formDataPolitica,
                   pertenece_movimiento_social: e.target.value,
                 })
               }
@@ -399,10 +412,10 @@ const AddEmpleado: React.FC<AddEmpleadoProps> = ({ tipo_empleado }) => {
               icono={<FaIdCard />}
               placeholder="Código del Carnet de la Patria"
               name="carnet_patria_codigo"
-              value={formData.carnet_patria_codigo}
+              value={formDataPolitica.carnet_patria_codigo}
               valueChange={(e) =>
-                setFormData({
-                  ...formData,
+                setFormDataPolitica({
+                  ...formDataPolitica,
                   carnet_patria_codigo: e.target.value,
                 })
               }
@@ -412,10 +425,10 @@ const AddEmpleado: React.FC<AddEmpleadoProps> = ({ tipo_empleado }) => {
               icono={<FaIdCard />}
               placeholder="Serial del Carnet de la Patria"
               name="carnet_patria_serial"
-              value={formData.carnet_patria_serial}
+              value={formDataPolitica.carnet_patria_serial}
               valueChange={(e) =>
-                setFormData({
-                  ...formData,
+                setFormDataPolitica({
+                  ...formDataPolitica,
                   carnet_patria_serial: e.target.value,
                 })
               }
@@ -426,9 +439,9 @@ const AddEmpleado: React.FC<AddEmpleadoProps> = ({ tipo_empleado }) => {
               placeholder="Tipo de Voto"
               content={true}
               name="tipo_voto"
-              value={formData.tipo_voto}
+              value={formDataPolitica.tipo_voto}
               valueChange={(e) =>
-                setFormData({ ...formData, tipo_voto: e.value })
+                setFormDataPolitica({ ...formDataPolitica, tipo_voto: e.value })
               }
               options={tipoVoto}
             />
@@ -439,9 +452,12 @@ const AddEmpleado: React.FC<AddEmpleadoProps> = ({ tipo_empleado }) => {
               icono={<BiSolidInstitution />}
               placeholder="Centro de Votación"
               name="centro_votacion"
-              value={formData.centro_votacion}
+              value={formDataPolitica.centro_votacion}
               valueChange={(e) =>
-                setFormData({ ...formData, centro_votacion: e.target.value })
+                setFormDataPolitica({
+                  ...formDataPolitica,
+                  centro_votacion: e.target.value,
+                })
               }
             />
           </div>

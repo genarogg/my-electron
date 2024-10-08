@@ -1,16 +1,14 @@
 import { GlobalStateContext, ActionTypes } from "@redux";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import Separador from "../separador/Separador";
 
 interface TituloNavSimpleProps {}
 
 const TituloNavSimple: React.FC<TituloNavSimpleProps> = () => {
   const { dispatch } = useContext(GlobalStateContext);
-  const [selectedContext, setSelectedContext] = useState<string | null>("");
 
   const handleChangeContext = (newContext: string) => {
     dispatch({ type: ActionTypes.SET_CONTEXT, payload: newContext });
-    setSelectedContext(newContext);
   };
 
   return (

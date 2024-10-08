@@ -26,10 +26,4 @@ ipcMain.on("minimize-window", () => {
   }
 });
 
-ipcMain.on("move-window", (event, x, y) => {
-  if (mainWindow) {
-    mainWindow.setPosition(x, y);
-  }
-});
-
 export { ping, closedWindown };

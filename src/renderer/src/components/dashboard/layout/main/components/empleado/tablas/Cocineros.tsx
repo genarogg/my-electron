@@ -5,7 +5,7 @@ interface CocinerosProps {}
 const Cocineros: React.FC<CocinerosProps> = () => {
   return (
     <EmpleadoTable
-      tipo="cocinero"
+      tipo="cocineros"
       nameTablet="Cocineros"
       ir="agregar empleado"
       irAnadirEmpleado={() => console.log("ir a añadir Obreros")}

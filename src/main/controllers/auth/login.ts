@@ -3,6 +3,8 @@ import bcrypt from "bcryptjs";
 import { userService, bitacoraService } from "@model";
 
 const login = ipcMain.handle("auth/login", async (event, data) => {
+  event.defaultPrevented;
+
   const { userName, password } = data;
 
   const usuario = await userService.getUserByEmail(userName);

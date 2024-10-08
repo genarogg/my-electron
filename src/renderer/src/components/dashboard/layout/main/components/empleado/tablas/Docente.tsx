@@ -5,7 +5,7 @@ interface DocenteProps {}
 const Docente: React.FC<DocenteProps> = () => {
   return (
     <EmpleadoTable
-      tipo="docente"
+      tipo="docentes"
       nameTablet="docentes"
       ir="agregar empleado"
       irAnadirEmpleado={() => console.log("ir a añadir docente")}

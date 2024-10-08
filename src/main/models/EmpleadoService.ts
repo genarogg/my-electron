@@ -15,17 +15,21 @@ class EmpleadoService {
     ci: number,
     fecha_nacimiento: string,
     telefono: string,
+
     correo_electronico: string,
     fecha_ingreso_mppe: string,
     direccion_de_habitacion: string,
+
     codigo_cargo: string,
     dependencia_nominal: string,
     estatus: boolean,
     reposo_permiso: string,
+
     anos_servicio: number,
     observaciones: string,
     titulo_pregrado: string,
     area_docente_especialista: string,
+
     grado_seccion: string,
     funcion_trabajo: string,
     acarigua: string,
@@ -64,9 +68,23 @@ class EmpleadoService {
         acarigua,
         titulo_obtenido,
       ]);
+
+      return this.lastId();
+      
     } catch (error) {
       console.error("Error al crear el empleado:", error);
       throw error;
+    }
+  }
+
+  // last id
+  public lastId() {
+    const selectQuery = `SELECT id FROM empleado ORDER BY id DESC LIMIT 1;`;
+
+    try {
+      return this.db.get(selectQuery);
+    } catch (error) {
+      console.error("Error al obtener el ultimo empleado:", error);
     }
   }
 

@@ -5,7 +5,7 @@ interface AdministrativoProps {}
 const Administrativo: React.FC<AdministrativoProps> = () => {
   return (
     <EmpleadoTable
-      tipo="administrativo"
+      tipo="administrativos"
       nameTablet="Administrativos"
       ir="agregar empleado"
       irAnadirEmpleado={() => console.log("ir a añadir Obreros")}

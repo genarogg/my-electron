@@ -4,9 +4,15 @@ import ActionsCellRenderer from "../../cell-renderers/ActionsCellRenderer";
 
 const empleadoColumnDefs: (ColDef<Empleado> | ColGroupDef<Empleado>)[] = [
   {
-    headerName: "ID",
+    headerName: "Index",
     field: "id",
     width: 100,
+    valueGetter: (params) => {
+        if (params.node && params.node.rowIndex !== null && params.node.rowIndex !== undefined) {
+          return params.node.rowIndex + 1; 
+        }
+        return null;
+      },
   },
   {
     headerName: "DATOS DEL PERSONAL",

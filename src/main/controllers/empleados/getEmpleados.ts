@@ -4,6 +4,7 @@ import { empleadoPoliticaService } from "@model";
 const getEmpleado = ipcMain.handle(
   "empleado/getEmpleado",
   async (event, data) => {
+    event.defaultPrevented;
     try {
       const empleados = await empleadoPoliticaService.getEmpleadoWithPolitica();
 
@@ -11,6 +12,8 @@ const getEmpleado = ipcMain.handle(
       const filteredEmpleados = empleados.filter(
         (empleado) => empleado.tipo_empleado === data.tipo_empleado
       );
+
+      console.log("Empleados filtrados:", filteredEmpleados);
 
       return {
         type: "success",

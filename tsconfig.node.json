@@ -3,6 +3,15 @@
   "include": ["electron.vite.config.*", "src/main/**/*", "src/preload/**/*", "src/config"],
   "compilerOptions": {
     "composite": true,
-    "types": ["electron-vite/node"]
+    "types": ["electron-vite/node"],
+
+    
+      "baseUrl": "./src",
+      "paths": {
+     
+        // api interna
+        "@dbManager": ["main/config/dbManager.ts"],
+        "@model": ["main/models/index.ts"]
+      }
   }
 }

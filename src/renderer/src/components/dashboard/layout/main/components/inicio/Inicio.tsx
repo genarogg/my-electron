@@ -4,7 +4,7 @@ import { BtnNormalBasic } from "@btn";
 import { useSimpleNav } from "../../../../../state/useSimpleNav";
 
 const Inicio: React.FC<InicioProps> = () => {
-  const { state, selectedContext, handleChangeContext } = useSimpleNav();
+  const { handleChangeContext } = useSimpleNav();
   return (
     <div className="container-inicio">
       <div className="container-card-home">

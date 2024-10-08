@@ -4,7 +4,7 @@ const crearEmpleados = async () => {
   // Datos de ejemplo para empleados
   const empleados = [
     {
-      tipo_empleado: "docente",
+      tipo_empleado: "docentes",
       nombres: "Docente1",
       apellidos: "Apellido1",
       ci: 1234561,
@@ -27,7 +27,7 @@ const crearEmpleados = async () => {
       titulo_obtenido: "",
     },
     {
-      tipo_empleado: "docente",
+      tipo_empleado: "docentes",
       nombres: "Docente2",
       apellidos: "Apellido2",
       ci: 1234562,
@@ -50,7 +50,7 @@ const crearEmpleados = async () => {
       titulo_obtenido: "",
     },
     {
-      tipo_empleado: "docente",
+      tipo_empleado: "docentes",
       nombres: "Docente3",
       apellidos: "Apellido3",
       ci: 1234563,
@@ -73,7 +73,7 @@ const crearEmpleados = async () => {
       titulo_obtenido: "",
     },
     {
-      tipo_empleado: "docente",
+      tipo_empleado: "docentes",
       nombres: "Docente4",
       apellidos: "Apellido4",
       ci: 1234564,
@@ -96,7 +96,7 @@ const crearEmpleados = async () => {
       titulo_obtenido: "",
     },
     {
-      tipo_empleado: "docente",
+      tipo_empleado: "docentes",
       nombres: "Docente5",
       apellidos: "Apellido5",
       ci: 1234565,
@@ -119,7 +119,7 @@ const crearEmpleados = async () => {
       titulo_obtenido: "",
     },
     {
-      tipo_empleado: "obrero",
+      tipo_empleado: "obreros",
       nombres: "Obrero1",
       apellidos: "Apellido1",
       ci: 2234561,
@@ -142,7 +142,7 @@ const crearEmpleados = async () => {
       titulo_obtenido: "Bachiller",
     },
     {
-      tipo_empleado: "obrero",
+      tipo_empleado: "obreros",
       nombres: "Obrero2",
       apellidos: "Apellido2",
       ci: 2234562,
@@ -165,7 +165,7 @@ const crearEmpleados = async () => {
       titulo_obtenido: "Bachiller",
     },
     {
-      tipo_empleado: "obrero",
+      tipo_empleado: "obreros",
       nombres: "Obrero3",
       apellidos: "Apellido3",
       ci: 2234563,
@@ -188,7 +188,7 @@ const crearEmpleados = async () => {
       titulo_obtenido: "Bachiller",
     },
     {
-      tipo_empleado: "obrero",
+      tipo_empleado: "obreros",
       nombres: "Obrero4",
       apellidos: "Apellido4",
       ci: 2234564,
@@ -211,7 +211,7 @@ const crearEmpleados = async () => {
       titulo_obtenido: "Bachiller",
     },
     {
-      tipo_empleado: "obrero",
+      tipo_empleado: "obreros",
       nombres: "Obrero5",
       apellidos: "Apellido5",
       ci: 2234565,

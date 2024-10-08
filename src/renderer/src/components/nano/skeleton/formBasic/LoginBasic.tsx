@@ -4,7 +4,7 @@ import { ToastContainer } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
 import { Input } from "@form";
-import { CheckboxBasic, BtnSubmitBasic, BtnText } from "@btn";
+import { CheckboxBasic, BtnSubmitBasic } from "@btn";
 
 import { BsEnvelopeFill } from "react-icons/bs";
 import { MdLock } from "react-icons/md";
@@ -12,7 +12,6 @@ import { MdLock } from "react-icons/md";
 import { submitLogin } from "../fnForm";
 import { CloseElectron } from "@electron";
 
-import { mainWindow } from "../../../../../../main/index";
 
 interface LoginBasicProps {}
 
@@ -70,7 +69,7 @@ const LoginBasic: React.FC<LoginBasicProps> = () => {
           }
         />
         <BtnSubmitBasic text="Iniciar sesion" loading={formData.loading} />
-        {/* <BtnText text="Olvidaste tu contraseña?" onClick={() => {}} /> */}
+
       </form>
       <ToastContainer />
     </div>

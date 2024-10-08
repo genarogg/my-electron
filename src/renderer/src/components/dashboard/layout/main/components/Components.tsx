@@ -1,14 +1,11 @@
 // @iconos
 import { HiHome } from "react-icons/hi";
-import { PiTableThin } from "react-icons/pi";
 import { FaCalendarAlt } from "react-icons/fa";
 import { GrUserWorker } from "react-icons/gr";
 import { PiChefHatBold } from "react-icons/pi";
 import { PiStudentBold } from "react-icons/pi";
 
 import { FaUsersLine } from "react-icons/fa6";
-
-import { MdOutlineUpdate } from "react-icons/md";
 
 import AsistenciaTabla from "./asistencia/AsistenciaTabla";
 
