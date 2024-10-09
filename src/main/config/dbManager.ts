@@ -6,6 +6,7 @@ import { createPlantelTableQuery } from "./tablaPlantel";
 import { createEmpleadoTableQuery } from "./tablaEmpleado";
 import { createPoliticaTableQuery } from "./tablaPolitica";
 import { createBitacoraTableQuery } from "./tablaBitacora";
+import { createAsistenciaEmpleadoTableQuery } from "./tablaAsistenciaEmpleado";
 
 class DatabaseManager {
   private db: Database;
@@ -23,6 +24,7 @@ class DatabaseManager {
     this.createTable(createEmpleadoTableQuery);
     this.createTable(createPoliticaTableQuery);
     this.createTable(createBitacoraTableQuery);
+    this.createTable(createAsistenciaEmpleadoTableQuery);
   }
 
   private createTable(query: any) {

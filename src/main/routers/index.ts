@@ -6,8 +6,10 @@ dataFake();
 
 import { login } from "../controllers/auth";
 import { getEmpleado, addEmpleado } from "../controllers/empleados";
-
+import { generarAsistencia } from "../controllers/asistencia";
 import { ping } from "./ping";
+
+generarAsistencia()
 
 const router = {
   ping,

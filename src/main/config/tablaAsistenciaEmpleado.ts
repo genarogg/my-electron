@@ -1,7 +1,7 @@
 import { SQL } from "sql-template-strings";
 
-export const createBitacoraTableQuery = SQL`
-  CREATE TABLE IF NOT EXISTS bitacora (
+export const createAsistenciaEmpleadoTableQuery = SQL`
+  CREATE TABLE IF NOT EXISTS asistencia_empleado (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     personal_id INTEGER NOT NULL,
     nombres TEXT NOT NULL,

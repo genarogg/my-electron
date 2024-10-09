@@ -7,32 +7,32 @@ import Dashboard from "./pages/Dashboard";
 
 interface AppProps {}
 
-const App: React.FC<AppProps> = () => {
-  return (
-    <>
-      <Provider>
-        <Router>
-          <Routes>
-            <Route path="/" element={<Login />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-          </Routes>
-        </Router>
-      </Provider>
-    </>
-  );
-};
-
 // const App: React.FC<AppProps> = () => {
 //   return (
-//     <Provider>
-//       <Router>
-//         <Routes>
-          
-//           <Route path="/" element={<Dashboard />} />
-//         </Routes>
-//       </Router>
-//     </Provider>
+//     <>
+//       <Provider>
+//         <Router>
+//           <Routes>
+//             <Route path="/" element={<Login />} />
+//             <Route path="/dashboard" element={<Dashboard />} />
+//           </Routes>
+//         </Router>
+//       </Provider>
+//     </>
 //   );
 // };
+
+const App: React.FC<AppProps> = () => {
+  return (
+    <Provider>
+      <Router>
+        <Routes>
+          
+          <Route path="/" element={<Dashboard />} />
+        </Routes>
+      </Router>
+    </Provider>
+  );
+};
 
 export default App;

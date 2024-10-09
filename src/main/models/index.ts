@@ -3,6 +3,7 @@ import bitacoraService from "./BitacoraService";
 import empleadoService from "./EmpleadoService";
 import politicaService from "./PoliticaService";
 import empleadoPoliticaService from "./EmpleadoPoliticaService";
+import asistenciaEmpleadoService from "./AsistenciaEmpleadoService";
 
 export {
   userService,
@@ -10,4 +11,5 @@ export {
   empleadoService,
   politicaService,
   empleadoPoliticaService,
+  asistenciaEmpleadoService
 };
