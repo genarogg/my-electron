@@ -6,16 +6,17 @@ dataFake();
 
 import { login } from "../controllers/auth";
 import { getEmpleado, addEmpleado } from "../controllers/empleados";
-import { generarAsistencia } from "../controllers/asistencia";
+import { generarAsistencia, getAsistencia } from "../controllers/asistencia";
 import { ping } from "./ping";
 
-generarAsistencia()
+generarAsistencia();
 
 const router = {
   ping,
   login,
   getEmpleado,
   addEmpleado,
+  getAsistencia,
 };
 
 export default router;

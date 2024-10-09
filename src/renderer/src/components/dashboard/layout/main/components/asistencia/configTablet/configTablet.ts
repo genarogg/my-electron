@@ -1,10 +1,7 @@
 import { ColDef, ColGroupDef } from "ag-grid-community";
-import { AsistenciaPersonal } from "./asistenciaPersonal";
+import Empleado from "./AsistenciaTypes";
 
-const asistenciaColumnDefs: (
-  | ColDef<AsistenciaPersonal>
-  | ColGroupDef<AsistenciaPersonal>
-)[] = [
+const empleadoColumnDefs: (ColDef<Empleado> | ColGroupDef<Empleado>)[] = [
   {
     headerName: "ID",
     field: "id",
@@ -47,6 +44,12 @@ const asistenciaColumnDefs: (
     width: 150,
   },
   {
+    headerName: "Hora de Salida",
+    field: "hora_salida",
+    filter: true,
+    width: 150,
+  },
+  {
     headerName: "Vino",
     field: "vino",
     filter: true,
@@ -54,4 +57,4 @@ const asistenciaColumnDefs: (
   },
 ];
 
-export default asistenciaColumnDefs;
+export default empleadoColumnDefs;

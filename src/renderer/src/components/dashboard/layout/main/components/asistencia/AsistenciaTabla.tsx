@@ -1,65 +1,51 @@
-interface AsistenciaTablaProps {}
-
-import TabletTrabajador from "@components/tablet/TabletTrabajador";
 import React, { useEffect, useState } from "react";
 
-import AddAsistencia from "./crud/AddAsistencia";
+import TabletTrabajador from "@components/tablet/TabletTrabajador";
+import EmpleadoTypes from "./configTablet/AsistenciaTypes";
+import configTablet from "./configTablet/configTablet";
+import staticDataFake from "./configTablet/staticDataFake";
 
-import {
-  AsistenciaPersonal,
-  asistenciaPersonal,
-} from "./data/asistenciaPersonal";
-import asistenciaColumnDefs from "./data/asistenciaColumnDefs";
+interface AsistenciaTableProps {
+  irAnadirEmpleado: () => void;
+}
 
-const AsistenciaTabla: React.FC<AsistenciaTablaProps> = () => {
-  const irAnadirObrero = () => {
-    console.log("isActive", isActive);
-    document.getElementById("asideAsistencia")!.classList.toggle("active");
-    setIsActive(!isActive);
-  };
-
-  const [isActive, setIsActive] = useState(false);
-  const [asistencia, setAsistencia] = useState<AsistenciaPersonal[]>([]);
+const AsistenciaTable: React.FC<AsistenciaTableProps> = ({}) => {
+  const [empleados, setEmpleado] = useState<EmpleadoTypes[]>([]);
 
   useEffect(() => {
-    const fetchCocinero = async () => {
+    const fetchEmpleado = async () => {
       try {
-        const response = await fetch(`-/asistencia/get`);
-        const data = await response.json();
-        if (data.type === "success") {
-          setAsistencia(data.asistencias);
-        } else {
-          console.error("Error al recuperar los datos de los docentes:", data);
-        }
+        window.electron.ipcRenderer
+          .invoke("asisgencia/getAsistencia")
+          .then((data) => {
+            if (data.type === "success") {
+              setEmpleado(data.asistencias);
+            }
+          });
       } catch (error) {
-        console.error("Error al recuperar los datos de los docentes:", error);
+        console.error("Error al recuperar los datos de los empleados:", error);
       }
     };
 
-    fetchCocinero();
-  }, [isActive]);
+    fetchEmpleado();
+  }, []);
 
   const datos = [
-    asistencia.length > 0 ? asistencia : asistenciaPersonal,
-    asistenciaColumnDefs,
+    empleados.length > 0 ? empleados : staticDataFake,
+    configTablet,
   ];
 
   return (
     <>
       <TabletTrabajador
-        nameTabla="asistencia"
-        subname="registrar una"
-        onClick={irAnadirObrero}
+        nameTabla="Asistencia"
+        onClick={() => console.log("ir a añadir empleado")}
         rowData={datos[0]}
         columnDefs={datos[1]}
-        ir={"Asistencia"}
+        ir={"ir"}
       />
-
-      <div className={`addAsistencia aside`} id="asideAsistencia">
-        <AddAsistencia fn={irAnadirObrero}></AddAsistencia>
-      </div>
     </>
   );
 };
 
-export default AsistenciaTabla;
+export default AsistenciaTable;

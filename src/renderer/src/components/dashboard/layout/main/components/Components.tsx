@@ -10,13 +10,15 @@ import { FaUsersLine } from "react-icons/fa6";
 import AsistenciaTabla from "./asistencia/AsistenciaTabla";
 
 import { TbCheckupList } from "react-icons/tb";
-
+import { MdOutlineUpdate } from "react-icons/md";
 import AddEmpleado from "./empleado/crud/AddEmpleado";
 
 import Docente from "./empleado/tablas/Docente";
 import Obrero from "./empleado/tablas/Obrero";
 import Administrativo from "./empleado/tablas/Administrativo";
 import Cocinero from "./empleado/tablas/Cocineros";
+
+import AsistenciaTable from "./asistencia/AsistenciaTabla";
 
 import Inicio from "./inicio/Inicio";
 const components: any = [
@@ -59,11 +61,11 @@ const components: any = [
   {
     titleSecction: "bitacora",
     elements: [
-      // {
-      //   component: TabletBitacora,
-      //   context: "bitacora",
-      //   icon: <MdOutlineUpdate />,
-      // },
+      {
+        component: AsistenciaTable,
+        context: "bitacora",
+        icon: <MdOutlineUpdate />,
+      },
       {
         component: AsistenciaTabla,
         context: "Asistencia",
