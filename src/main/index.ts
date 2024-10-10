@@ -49,6 +49,8 @@ async function createWindow(): Promise<void> {
   mainWindow.on("closed", () => {
     mainWindow = null;
   });
+
+  // Modifica la política de seguridad de contenido
 }
 
 app.whenReady().then(async () => {

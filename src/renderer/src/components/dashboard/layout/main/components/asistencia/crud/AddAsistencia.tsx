@@ -21,32 +21,32 @@ const AddAsistencia: React.FC<AddAsistenciaProps> = ({ fn }) => {
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(formData);
-    console.log("URL_BACKEND", `-/asistencia/add`);
+    // console.log(formData);
+    // console.log("URL_BACKEND", `-/asistencia/add`);
 
-    fetch(`-/asistencia/add`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log("data2", data);
+    // fetch(`-/asistencia/add`, {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify(formData),
+    // })
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     console.log("data2", data);
 
-        if (data.type === "error") {
-          notify({ message: data.message, type: data.type });
-          return;
-        }
-        // handleChangeContext("Asistencia", "");
-        setFormData({ ci: "" });
-        fn();
-        notify({ message: data.message, type: data.type });
-      })
-      .catch((error) => {
-        console.log("error", error);
-      });
+    //     if (data.type === "error") {
+    //       notify({ message: data.message, type: data.type });
+    //       return;
+    //     }
+    //     // handleChangeContext("Asistencia", "");
+    //     setFormData({ ci: "" });
+    //     fn();
+    //     notify({ message: data.message, type: data.type });
+    //   })
+    //   .catch((error) => {
+    //     console.log("error", error);
+    //   });
   };
 
   return (

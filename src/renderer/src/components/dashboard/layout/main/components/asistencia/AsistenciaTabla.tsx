@@ -5,11 +5,19 @@ import EmpleadoTypes from "./configTablet/AsistenciaTypes";
 import configTablet from "./configTablet/configTablet";
 import staticDataFake from "./configTablet/staticDataFake";
 
-interface AsistenciaTableProps {
-  irAnadirEmpleado: () => void;
-}
+import AddAsistencia from "./crud/AddAsistencia";
 
-const AsistenciaTable: React.FC<AsistenciaTableProps> = ({}) => {
+interface AsistenciaTableProps {}
+
+const AsistenciaTable: React.FC<AsistenciaTableProps> = () => {
+  const registrarUnaAsistencia = () => {
+    console.log("isActive", isActive);
+    document.getElementById("asideAsistencia")!.classList.toggle("active");
+    setIsActive(!isActive);
+  };
+
+  const [isActive, setIsActive] = useState(false);
+
   const [empleados, setEmpleado] = useState<EmpleadoTypes[]>([]);
 
   useEffect(() => {
@@ -35,15 +43,20 @@ const AsistenciaTable: React.FC<AsistenciaTableProps> = ({}) => {
     configTablet,
   ];
 
+  console.log("datos", datos);
+
   return (
     <>
       <TabletTrabajador
         nameTabla="Asistencia"
-        onClick={() => console.log("ir a añadir empleado")}
+        onClick={() => {registrarUnaAsistencia()}}
         rowData={datos[0]}
         columnDefs={datos[1]}
-        ir={"ir"}
+        ir={"Asistencia"}
       />
+      <div className={`addAsistencia aside`} id="asideAsistencia">
+        <AddAsistencia fn={registrarUnaAsistencia}></AddAsistencia>
+      </div>
     </>
   );
 };

@@ -6,6 +6,10 @@ const empleadoColumnDefs: (ColDef<Empleado> | ColGroupDef<Empleado>)[] = [
     headerName: "ID",
     field: "id",
     width: 100,
+    icons: {
+      sortAscending: '<i class="fa fa-sort-alpha-up"/>',
+      sortDescending: '<i class="fa fa-sort-alpha-down"/>',
+    },
   },
   {
     headerName: "Personal ID",
